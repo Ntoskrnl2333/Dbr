@@ -1,0 +1,10 @@
+----dbr.exe
+	See at "DBR.EXE /?"
+----.dbr file
+	Root path string (like C:\Windows, no "\" but 0x00 in the end!)
+	(4-bits unsigned int) Number of files
+	~~For the first file~~
+		Relative path string (like \system32\ntdll.dll, has "\" in the front and 0x00 in the end!)
+		(4-bits unsigned int) File size (Bytes)
+		File content
+	~~And so on~~
