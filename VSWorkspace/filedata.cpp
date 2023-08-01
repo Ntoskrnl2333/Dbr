@@ -14,14 +14,19 @@ void __FileData__::Release(){
 }
 
 void __FileData__::Read() {
-	FILE* fp = fopen(path.c_str(),"r");
+	FILE* fp = fopen(path.c_str(), "r");
 	if (fp == NULL) {
-		char tmp[1024];
-		sprintf(tmp,"Warning: Cannot read \"%s\", ignored.",path.c_str());
+		char *tmp=new char[64];
+		sprintf(tmp, "Warning: Cannot read \"%s\", ignored.", path.c_str());
 		msgq.push(tmp);
+		err = 1;
 		return;
 	}
-	fread(data,1,size,fp);
+	uint rtn = fread(data, 1, size, fp);
+	if (rtn != size){
+		msgq.push("File format error!");
+		err = 2;
+	}
 	fclose(fp);
 	return;
 }
@@ -32,6 +37,7 @@ void __FileData__::Write() {
 		char tmp[1024];
 		sprintf(tmp, "Warning: Cannot write \"%s\", ignored.", path.c_str());
 		msgq.push(tmp);
+		err = 1;
 		return;
 	}
 	fwrite(data, 1, size, fp);

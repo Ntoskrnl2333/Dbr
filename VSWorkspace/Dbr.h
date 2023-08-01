@@ -24,6 +24,8 @@ enum ACTIONS {
 
 extern queue<string> msgq;
 
+extern string SpecSlash(string path,bool isrelatve);
+
 class __FileData__ {
 public:
 	void Allocate();
@@ -38,13 +40,13 @@ public:
 
 class __DataBase__ {
 private:
-	void Read();
+	uint Read();
 	void Write();
 public:
 	void Backup();
 	void Restore();
 
-	string root;
+	string root,fname;
 	uint num=0,nowfile=0;
 	vector<__FileData__> file;
 };
