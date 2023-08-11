@@ -1,5 +1,7 @@
 #pragma once
 
+#define _CRT_SECURE_NO_WARNINGS
+
 #include <sys/stat.h>
 #include <windows.h>
 #include <cstring>
@@ -9,6 +11,7 @@
 #include <cstdio>
 #include <vector>
 #include <queue>
+#include <io.h>
 using namespace std;
 
 typedef unsigned int uint;
@@ -24,14 +27,16 @@ enum ACTIONS {
 
 extern queue<string> msgq;
 
+extern string GetExtension(string path);
 extern string SpecSlash(string path,bool isrelatve);
+extern vector<string> GetFilesUnderAPath(string path);
 
 class __FileData__ {
 public:
 	void Allocate();
 	void Release();
-	void Read();
-	void Write();
+	void Read(); //Read from file
+	void Write(); //Write to file
 
 	string path;
 	uint size=0,err=0;
@@ -40,14 +45,14 @@ public:
 
 class __DataBase__ {
 private:
-	uint Read();
-	void Write();
+	void Read(); //Read from .dbr
+	void Write(); //Write to .dbr
 public:
 	void Backup();
 	void Restore();
 
 	string root,fname;
-	uint num=0,nowfile=0;
+	uint num=0,nowfile=0;//nowfile:useless
 	vector<__FileData__> file;
 };
 

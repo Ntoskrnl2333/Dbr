@@ -2,7 +2,7 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>F:\Dbr\VSWorkspace\x64\Debug\Dbr.exe</FullPath>
+      <FullPath>F:\Dbr\VSWorkspace\x64\Release\Dbr.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />

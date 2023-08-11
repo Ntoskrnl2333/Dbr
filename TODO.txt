@@ -1,3 +1,4 @@
-Develop:
-database.cpp: Read(),Write(),Backup(),Restore()
-func.cpp AnalArgs()
+Fix Bugs:
+1. No data in the output file
+2. Cannot add .dbr when the file name doesn't has extension.
+3. When the working thread stops, it jumps an error message box.
