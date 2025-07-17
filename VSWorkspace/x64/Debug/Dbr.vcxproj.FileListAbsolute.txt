@@ -1,2 +1,0 @@
-F:\C++\Dbr\x64\Debug\Dbr.exe
-F:\Dbr\VSWorkspace\x64\Debug\Dbr.exe
