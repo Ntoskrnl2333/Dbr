@@ -1,2 +1,2 @@
 # Dbr
-File backup and restore tool through ASCII encoding.
+File backup and restore tool through ASCII encoding for Windows.
